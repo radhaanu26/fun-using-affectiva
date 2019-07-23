@@ -2,7 +2,7 @@ const app = document.querySelector("#app");
 const startBtn = document.querySelector("#start-button");
 const stopBtn = document.querySelector("#stop-button");
 const ctx = document.getElementById('myChart');
-const clientId= "352712332521-7h20d5fud7hjpns4p95g2jhar5bik030.apps.googleusercontent.com";
+const clientId= "663898533723-165cmmi3f2r9i301m7l9u1qth39v9vh2.apps.googleusercontent.com";
 let started = false;
 // The captured frame's width in pixels
 const width = 640;
