@@ -2,11 +2,16 @@ const app = document.querySelector("#app");
 const startBtn = document.querySelector("#start-button");
 const stopBtn = document.querySelector("#stop-button");
 const ctx = document.getElementById('myChart');
+const clientId= "352712332521-7h20d5fud7hjpns4p95g2jhar5bik030.apps.googleusercontent.com";
 let started = false;
 // The captured frame's width in pixels
 const width = 640;
 // The captured frame's height in pixels
 const height = 480;
+var authorizeButton = document.getElementById('authorize-button');
+var signoutButton = document.getElementById('signout-button');
+var scopes = 'profile';
+
 let data = [];
 const myChart = new Chart(ctx, {
     type: 'bar',
@@ -404,3 +409,29 @@ function compileEmotionData() {
     }
      exportCSVFile(headers, data, 'abc');
 }
+
+function initClient() {
+    gapi.client.init({
+        clientId: clientId,
+        scope: scopes
+    }).then(function () {
+      gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+      updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+      authorizeButton.onclick = handleAuthClick;
+      signoutButton.onclick = handleSignoutClick;
+    }).catch(err => {
+        console.log(JSON.stringify(err))
+    });
+  }
+  function updateSigninStatus(isSignedIn) {
+    if (isSignedIn) {
+      authorizeButton.style.display = 'none';
+      signoutButton.style.display = 'block';
+      makeApiCall();
+    } else {
+      authorizeButton.style.display = 'block';
+      signoutButton.style.display = 'none';
+    }
+  }
+
+  gapi.load('client:auth2', initClient);

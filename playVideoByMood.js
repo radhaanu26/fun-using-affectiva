@@ -1,10 +1,10 @@
 const moodToQueryMap = {
-    anger: 'In the Wee Small Hours of the Morning',
-    disgust: 'Strawberry Fields Forever',
-    fear: 'Trust in You',
-    joy: 'uptown funk',
-    sadness: 'my heart will go on',
-    surprise: 'Bob Dylan Greatest Hits',
+    anger: 'top 10 songs to uplift',//'In the Wee Small Hours of the Morning',
+    disgust: 'top songs to relax', //'Strawberry Fields Forever',
+    fear: 'jazz songs', //'Trust in You',
+    joy: 'peppy songs english', //'uptown funk',
+    sadness: 'best sad songs of all time english', //'my heart will go on',
+    surprise: 'best instrumental music english', //'Bob Dylan Greatest Hits',
 };
 const apiKey = "AIzaSyDBPzjEDZK_ZGOZcYQT7lm0VTdzjp5w95w";
 const content = document.getElementById('content');

@@ -9,20 +9,23 @@
   <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
 
 </head>
-
+<button id="authorize-button">Authorize</button>
+<button id="signout-button">Sign out</button>
 <body style="display: flex;">
-    <div>
-      <div id="app"></div>
+    <div id="app" style="display: none;">
+      <div></div>
       Kindly hold your emotion for 5 seconds to experience better prediction of your emotion!!
       <button id="start-button">Start</button>
       <button id="stop-button">Stop</button>
-    </div>
-    <div id="currentEmotion"></div>
-    <div id="content"></div>
-    <!-- <div id="results"></div> -->
-    <div style="width: 300px;">
+    
+      <div id="currentEmotion"></div>
+      <div id="content"></div>
+      <!-- <div id="results"></div> -->
+      <div style="width: 300px;">
         <canvas id="myChart" width="40" height="40"></canvas>
+      </div>
     </div>
+    <script src="https://apis.google.com/js/api.js"></script>
     <script src="https://download.affectiva.com/js/3.2.1/affdex.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="app.js"></script>
