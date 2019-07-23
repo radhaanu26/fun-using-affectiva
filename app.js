@@ -421,16 +421,20 @@ function initClient() {
       signoutButton.onclick = handleSignoutClick;
     }).catch(err => {
         console.log(JSON.stringify(err));
-  }
-  function updateSigninStatus(isSignedIn) {
+    });
+}
+
+function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
-      authorizeButton.style.display = 'none';
-      signoutButton.style.display = 'block';
-      makeApiCall();
+        authorizeButton.style.display = 'none';
+        signoutButton.style.display = 'block';
+        app.style.display = 'block';
+        // makeApiCall();
     } else {
       authorizeButton.style.display = 'block';
       signoutButton.style.display = 'none';
+      app.style.display = 'none';
     }
-  }
+}
 
-  gapi.load('client:auth2', initClient);
+gapi.load('client:auth2', initClient);
