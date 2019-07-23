@@ -420,7 +420,7 @@ function initClient() {
       authorizeButton.onclick = handleAuthClick;
       signoutButton.onclick = handleSignoutClick;
     }).catch(err => {
-        console.log(JSON.stringify(err)));
+        console.log(JSON.stringify(err));
   }
   function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
