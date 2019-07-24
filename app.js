@@ -429,12 +429,18 @@ function updateSigninStatus(isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
         app.style.display = 'block';
-        // makeApiCall();
+        makeApiCall();
     } else {
       authorizeButton.style.display = 'block';
       signoutButton.style.display = 'none';
       app.style.display = 'none';
     }
 }
+function handleAuthClick(event) {
+    gapi.auth2.getAuthInstance().signIn();
+  }
+function handleSignoutClick(event) {
+    gapi.auth2.getAuthInstance().signOut();
+  }
 
 gapi.load('client:auth2', initClient);
