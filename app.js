@@ -409,7 +409,12 @@ function compileEmotionData() {
     }
      exportCSVFile(headers, data, 'abc');
 }
-
+function handleAuthClick(event) {
+    gapi.auth2.getAuthInstance().signIn();
+  }
+function handleSignoutClick(event) {
+    gapi.auth2.getAuthInstance().signOut();
+  }
 function initClient() {
     gapi.client.init({
         clientId: clientId,
@@ -436,11 +441,6 @@ function updateSigninStatus(isSignedIn) {
       app.style.display = 'none';
     }
 }
-function handleAuthClick(event) {
-    gapi.auth2.getAuthInstance().signIn();
-  }
-function handleSignoutClick(event) {
-    gapi.auth2.getAuthInstance().signOut();
-  }
+
 
 gapi.load('client:auth2', initClient);
